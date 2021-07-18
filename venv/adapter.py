@@ -7,6 +7,14 @@ class adapter():
         self.number_to_state=dict()
         self.state_counter=0
 
+        self.action_to_number = dict()
+        self.number_to_action = dict()
+        self.action_counter = 0
+
+        self.obs_to_number = dict()
+        self.number_to_obs = dict()
+        self.obs_counter = 0
+
     def initstates(self,listofstates):
         """
         :param listofstates:
@@ -42,5 +50,11 @@ class adapter():
         if state is None:
             raise Exception('error in adapter, cannot find the state for this number')
         return state
+
+
+
+
+
+
 
 
