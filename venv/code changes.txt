@@ -1,0 +1,47 @@
+1. in functions prune_after_action,make_new_root i made changes that we wont have pruning
+2. i add id to make sure that there are no pruning.
+3. change so the new root is updated and not making new root
+
+Notes:
+1. after we have MCTS tree we want to expand obs nodes we didnt see in the POMCP there are 2 cases:
+    * after an action we dont have all the availbe obs nodes, because the black box didnt roll it up
+    * we have more than one obs child for action node and now we need to expand the obs nodes that we didnt expand in pomcp
+after expanding the new nodes maybe need to expand newer ones if added.
+what i do with the new ones? because this proccess can be for eternal.
+
+2. i added more smart rollout need to check that its ok.
+
+3.for the real state in the expand  ronen says to take state from the belief state in the node.
+
+4. add penalty to actions
+
+5. 
+
+
+
+TODO:
+
+2.need to fix context so its context only if the sate changes from trace in time 1 to trace in time 2
+
+
+
+
+
+Done:
+1. add adapter from problem to POMCP so POMCP knows only numbers and promblems know states
+and the adapter shift between the two with maps for number to state and another one mapping state to number
+add only when encouter new state so you dont need to save all state space
+
+2. need to check if i can prune after taking action but only the actions that were not taken
+like if i have a tree
+        r
+       /  \
+    a1      a2
+           /   \
+          o1    o2    and we are choosing a2 and o1  we prune only  a1 so we get
+
+        r
+          \
+            a2
+           /   \
+          o1    o2
