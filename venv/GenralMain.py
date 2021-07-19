@@ -47,9 +47,7 @@ def train(init_state):
         print("observation recievd : ", problem.observationSpace[observation])
         print("reward : ", reward)
         sumRewards += reward
-        if next_state == -2:
-            print("process finished")
-            break
+
         real_state = next_state
         root = ab.tree.prune_after_action(action, observation)
         #temp1=getBelief(ab.tree.nodes[root].belief)
@@ -58,6 +56,9 @@ def train(init_state):
         if len(ab.tree.nodes[ab.tree.nodes[root].parent].childnodes)>1:
             print(f"action that added to expand is {problem.actionSpace[action]} ")
             actionNode_realState.append((ab.tree.nodes[root].parent,next_state,action))
+        if next_state == -2:
+            print("process finished")
+            break
     print("the sum of rewards ", sumRewards)
     print("number of action until goal", actioncounts)
     #print("precentege of fail ", problem.countbad / (problem.countbad + problem.countgood))
@@ -123,13 +124,17 @@ def printTree(tree,root):
         action_child=tree.nodes[curr_node].childnodes
         if len(action_child)>1:
             print("ERRRRRRRRRRRRORRRRRRR")  # in the pruned tree every obs node suppoused to have only 1 action child
+        if len(action_child)==0:
+            continue
         action_number,node_id=list(action_child.items())[0]
         print(f"action suggested {problem.actionSpace[action_number]}")
         for key,obs_node in tree.nodes[node_id].childnodes.items():
             print(f"got observation {problem.observationSpace[key]} the suit node is {obs_node}")
+            if key == -2:
+                continue
             childs_list.append(obs_node)
 
-
+printTree(tree,-1)
 
 
 

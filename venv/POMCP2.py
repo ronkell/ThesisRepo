@@ -153,10 +153,10 @@ class POMCP():
             s = choice(bh)
         # sample from transition distribution
         s_next, o_next, _ = self.blackbox(s, action)
-        if s_next==-2:
-            print(" need to fix this error in post sample")
-            print("the  state we sent to blackbox is, ",s)
-            return s
+        #if s_next==-2:
+            #print(" need to fix this error in post sample")
+            #print("the  state we sent to blackbox is, ",s)
+            #return s
         #if o_next == observation or d == 100:
             #return s_next
         #self.PostSample(bh, action, observation, d + 1)
