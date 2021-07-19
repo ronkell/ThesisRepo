@@ -61,15 +61,15 @@ class POMCP():
     def rollout(self, s, h, depth):
         if (self.discountfactor ** depth < self.epsilon or self.discountfactor == 0 or depth>=self.horizon) and depth != 0:
             return 0
+        if s == -2:
+            # self.rollflag=True
+            # self.ends.append(h)
+            return 0
         accumlate_reward = 0
         valid_actions=self.problem.validactionsforrollout(s)
         #action = choice(self.actions)  # how to define a phirollout and do i need to add action and obs to the tree?
         action=choice(np.array(valid_actions))
         samplestate, sampleobs, reward = self.blackbox(s,action)
-        if samplestate==-2:
-            #self.rollflag=True
-            #self.ends.append(h)
-            return 0
         accumlate_reward += reward + self.discountfactor * self.rollout(samplestate, h, depth + 1)
         #if self.rollflag:
             #self.saveroll[self.rollcounter].append([s,action])
@@ -77,6 +77,8 @@ class POMCP():
 
     def simulate(self, s, h, depth):
         if self.discountfactor ** depth < self.epsilon:
+            return 0
+        if s==-2:
             return 0
         if self.tree.isLeaf(h):  # if h is  leaf
             for action in self.actions:
@@ -93,8 +95,8 @@ class POMCP():
         acc_reward = 0
         next_action, next_node = self.searchBest(h, UseUCB=True)
         sample_state, sample_obs, sample_reward = self.blackbox(s, next_action)
-        if sample_state==-2:
-            return acc_reward
+        #if sample_state==-2:
+            #return acc_reward
         Next_node = self.getObservationNode(next_node, sample_obs)
         acc_reward += sample_reward + self.discountfactor * self.simulate(sample_state, Next_node, depth + 1)
         self.tree.nodes[h].belief.append(s)  ## i am not sure its fit here

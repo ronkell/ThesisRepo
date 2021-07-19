@@ -6,7 +6,7 @@ from timeit import default_timer as timer
 import random
 import pandas as pd
 from adapter import adapter
-
+from collections import Counter
 
 
 problem=boxPushProblem(2,2,2,1)
@@ -38,8 +38,10 @@ def train(init_state):
     root = ab.tree.currRoot
     actionNode_realState=[]
     while time <= 15:
+        print(f"iter number {time}")
         time += 1
         print("current state: ", real_state)
+        print(f"belief state: {dict(sorted(Counter(tree.nodes[root].belief).items()))}")
         if problem.isFinalState(real_state) == -2:
             print("process finished")
             break

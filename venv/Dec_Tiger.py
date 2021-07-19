@@ -7,16 +7,16 @@ from adapter import adapter
 
 class Dec_Tiger():
     def __init__(self,number_of_agents, ):
-        self.number_of_agents=number_of_agents
+        self.numberOfAgents=number_of_agents
         self.states=[0,1] # 0 means tiger on the left 1 means tiger on the right
         self.actions_per_agent=[0,1,2] # 0 listen, 1 open left, 2 open right
-        self.actionSpace = [ele for ele in product(range(0, 3), repeat=numberOfAgents)]
+        self.actionSpace = [ele for ele in product(range(0, 3), repeat=self.numberOfAgents)]
         self.obs_per_agent=[0,1] # 0 means hearing tiger on left, 1 means hearing tiger on right
-        self.observationSpace=[ele for ele in product(range(0, 2), repeat=numberOfAgents)]
+        self.observationSpace=[ele for ele in product(range(0, 2), repeat=self.numberOfAgents)]
         self.initialState=self.generate_state()
 
     def generateInitStates(self):
-        return states;
+        return self.states;
 
     def blackbox(self, stateNum, actionNumber):
         reward = 0
@@ -49,11 +49,13 @@ class Dec_Tiger():
                     reward+=10
                 if counter_right>0:
                     penalty=400
-                    reward-=(penalty*0.25*counter_right)
+                    #reward-=(penalty*pow(0.25,counter_right))
+                    reward -= (penalty * 0.25* counter_right)
             elif stateNum==1:
                 if counter_left > 0:
                     penalty = 400
-                    reward -= (penalty * 0.25 * counter_left)
+                    #reward -= (penalty*pow(0.25,counter_left))
+                    reward -= (penalty * 0.25* counter_left)
                 if counter_right>0:
                     reward+=10
 
@@ -66,6 +68,9 @@ class Dec_Tiger():
             return 0
         else:
             return 1
+
+    def validactionsforrollout(self, stateNum):
+        return np.arange(0,len(self.actionSpace),1)
 
 
 
