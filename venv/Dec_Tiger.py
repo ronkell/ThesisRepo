@@ -49,13 +49,13 @@ class Dec_Tiger():
                     reward+=10
                 if counter_right>0:
                     penalty=400
-                    #reward-=(penalty*pow(0.25,counter_right))
-                    reward -= (penalty * 0.25* counter_right)
+                    reward-=(penalty*pow(0.25,counter_right))
+                    #reward -= (penalty * 0.25* counter_right)
             elif stateNum==1:
                 if counter_left > 0:
                     penalty = 400
-                    #reward -= (penalty*pow(0.25,counter_left))
-                    reward -= (penalty * 0.25* counter_left)
+                    reward -= (penalty*pow(0.25,counter_left))
+                    #reward -= (penalty * 0.25* counter_left)
                 if counter_right>0:
                     reward+=10
 

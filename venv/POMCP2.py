@@ -2,7 +2,7 @@ from Tree import Tree
 from numpy.random import binomial, choice, multinomial
 import numpy as np
 class POMCP():
-    def __init__(self, blackbox,problem, discountfactor=0.99, c=1, threshold=0.005, timeout=1000, num_of_patricles=1000):
+    def __init__(self, blackbox,problem, discountfactor=0.99, c=1, threshold=0.005, timeout=1000, num_of_patricles=1000,horizon=10):
         self.discountfactor = discountfactor
         self.blackbox = blackbox
         self.epsilon = threshold
@@ -12,7 +12,7 @@ class POMCP():
         self.c = c
         self.ends=[]
         self.problem=problem
-        self.horizon=9
+        self.horizon=horizon
         #self.rollflag=False
         #self.saveroll=[[-1]]
         #self.rollcounter=0
@@ -84,10 +84,6 @@ class POMCP():
             for action in self.actions:
                 self.tree.ExpandTreeFrom(h,action , IsAction=True)
             new_val = self.rollout(s, h, depth)
-            #if self.rollflag:
-                #self.rollflag=False
-                #self.rollcounter +=1
-                #self.saveroll.append([-1])
             self.tree.nodes[h].countN += 1
             self.tree.nodes[h].value = new_val
             return new_val
@@ -98,6 +94,7 @@ class POMCP():
         #if sample_state==-2:
             #return acc_reward
         Next_node = self.getObservationNode(next_node, sample_obs)
+        #i am trying to get more realiable to the papaer
         acc_reward += sample_reward + self.discountfactor * self.simulate(sample_state, Next_node, depth + 1)
         self.tree.nodes[h].belief.append(s)  ## i am not sure its fit here
         if len(self.tree.nodes[h].belief)>self.num_of_patricles:

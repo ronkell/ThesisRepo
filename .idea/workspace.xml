@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3221114b-efc1-44e8-adc2-594ef27d301f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Dec-Tiger.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Dec_Tiger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Dec_Tiger.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Dec_Tiger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/GenralMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/GenralMain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/ImprovedMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/ImprovedMain.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/POMCP2.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/POMCP2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -203,7 +202,7 @@
       <workItem from="1625907055215" duration="2885000" />
       <workItem from="1625993591794" duration="1504000" />
       <workItem from="1626090620242" duration="2684000" />
-      <workItem from="1626600476667" duration="21700000" />
+      <workItem from="1626600476667" duration="32930000" />
     </task>
     <servers />
   </component>
@@ -215,56 +214,56 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="20" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1618061373386" />
-    <state x="764" y="157" width="490" height="571" key="#xdebugger.evaluate" timestamp="1624103732149">
+    <state x="764" y="157" width="490" height="571" key="#xdebugger.evaluate" timestamp="1626689363022">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="764" y="157" width="490" height="571" key="#xdebugger.evaluate/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1624103732149" />
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1626630309858">
+    <state x="764" y="157" width="490" height="571" key="#xdebugger.evaluate/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626689363022" />
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1626710555719">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626630309858" />
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626710555719" />
     <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
     <state width="1323" height="180" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1626098515910" />
-    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1626630309858">
+    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1626710555719">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626630309858" />
+    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626710555719" />
     <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
     <state width="1323" height="180" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1626098515910" />
-    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1626630309858">
+    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1626710555719">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626630309858" />
+    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626710555719" />
     <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
     <state width="1323" height="180" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1626098515910" />
-    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1626630309858">
+    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1626710555719">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626630309858" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626710555719" />
     <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
     <state width="1323" height="180" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1626098515910" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1626630309858">
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1626710559641">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626630309858" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626710559641" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1622649821518" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1626630309858">
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1626710559641">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626630309858" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626710559641" />
     <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
     <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1622649821518" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1626630309858">
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1626710559641">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626630309858" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626710559641" />
     <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
     <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1622649821518" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1626630309858">
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1626710559641">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626630309858" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1626710559641" />
     <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
     <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1622649821518" />
     <state x="87" y="14" key="SettingsEditor" timestamp="1618061024316">
@@ -282,6 +281,30 @@
     <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1626090642709" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/venv/Tree.py</url>
+          <line>90</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/venv/Tree.py</url>
+          <line>102</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/venv/GenralMain.py</url>
+          <line>53</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/venv/GenralMain.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="h" />
@@ -295,7 +318,7 @@
     <SUITE FILE_PATH="coverage/ThesisRepo$ImprovedMain.coverage" NAME="ImprovedMain Coverage Results" MODIFIED="1626619331678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Scripts" />
     <SUITE FILE_PATH="coverage/ThesisRepo$Dec_Tiger.coverage" NAME="Dec-Tiger Coverage Results" MODIFIED="1626611207598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
     <SUITE FILE_PATH="coverage/ThesisRepo$ImprovedMain__1_.coverage" NAME="ImprovedMain (1) Coverage Results" MODIFIED="1626620084146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
-    <SUITE FILE_PATH="coverage/ThesisRepo$GenralMain.coverage" NAME="GenralMain Coverage Results" MODIFIED="1626630309827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
+    <SUITE FILE_PATH="coverage/ThesisRepo$GenralMain.coverage" NAME="GenralMain Coverage Results" MODIFIED="1626710555556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
     <SUITE FILE_PATH="coverage/myResearch$Main.coverage" NAME="Main Coverage Results" MODIFIED="1622632707022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
     <SUITE FILE_PATH="coverage/myResearch$tryminimain1agent.coverage" NAME="tryminimain1agent Coverage Results" MODIFIED="1622634490092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
     <SUITE FILE_PATH="coverage/myResearch$Tree.coverage" NAME="Tree Coverage Results" MODIFIED="1618061517331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />

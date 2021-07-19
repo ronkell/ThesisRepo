@@ -15,7 +15,7 @@ a=problem.generateInitStates()
 init_states=np.arange(0,len(a),1)
 actions=np.arange(0,len(problem.actionSpace),1)
 obs=np.arange(0,len(problem.observationSpace),1)
-ab = POMCP(problem.blackbox,problem, discountfactor=0.95,c=110)
+ab = POMCP(problem.blackbox,problem, discountfactor=0.95,c=110,horizon=2)
 ab.initialize(init_states, actions, obs)
 tree=ab.tree
 counter_train=0
@@ -58,18 +58,6 @@ def train(init_state):
         if len(ab.tree.nodes[ab.tree.nodes[root].parent].childnodes)>1:
             print(f"action that added to expand is {problem.actionSpace[action]} ")
             actionNode_realState.append((ab.tree.nodes[root].parent,next_state,action))
-
-
-        """if time >12:
-            print("before ")
-            for key,val in temp1.items():
-                print("state ", boxadapter.numberToState(key)," count ", val)
-            print("after")
-            for key,val in temp2.items():
-                print("state ", boxadapter.numberToState(key)," count ", val)"""
-
-    #end = timer()
-    #print("time ",end - start)
     print("the sum of rewards ", sumRewards)
     print("number of action until goal", actioncounts)
     #print("precentege of fail ", problem.countbad / (problem.countbad + problem.countgood))
@@ -125,5 +113,25 @@ while(len(more_nodes)>0):
     #index +=1
 endAllTimer = timer()
 print("time of all proccess  ",endAllTimer - startALLtimer)
+
+def printTree(tree,root):
+    childs_list = [root]
+    while(len(childs_list)>0):
+        curr_node=childs_list.pop(0)
+        print(f"node number {curr_node}")
+        print(f"node belief state {dict(sorted(Counter(tree.nodes[curr_node].belief).items()))}")
+        action_child=tree.nodes[curr_node].childnodes
+        if len(action_child)>1:
+            print("ERRRRRRRRRRRRORRRRRRR")  # in the pruned tree every obs node suppoused to have only 1 action child
+        action_number,node_id=list(action_child.items())[0]
+        print(f"action suggested {problem.actionSpace[action_number]}")
+        for key,obs_node in tree.nodes[node_id].childnodes.items():
+            print(f"got observation {problem.observationSpace[key]} the suit node is {obs_node}")
+            childs_list.append(obs_node)
+
+
+
+
+
 
 
