@@ -136,6 +136,55 @@ def printTree(tree,root):
 
 printTree(tree,-1)
 
+print("#############start genrate traces############ ")
+def genrateTraces(tree,problem,num_of_traces):
+    traces=[]
+    for i in range(0,num_of_traces):
+        print(f"start trace {i}")
+        trace={'actions':[],'states':[],'rewards':[],'observations':[],'next_states':[],'bstates':[],'trace_len':0,}
+        state=problem.generate_state()
+        #beleif_state={0:500,1:500}
+        root=-1
+        flag=False
+        while(not flag):
+            print(f"state is {state}")
+            d = dict(sorted(Counter(tree.nodes[root].belief).items()))
+            print(f"node belief state {d}")
+            action_child=tree.nodes[root].childnodes
+            if len(action_child) > 1:
+                print("error in traces tree")  # in the pruned tree every obs node suppoused to have only 1 action child
+            if len(action_child) == 0:
+                continue
+            action_number, node_id = list(action_child.items())[0]
+            print(f"action suggested {problem.actionSpace[action_number]}")
+            next_state, observation, reward = problem.blackbox(state, action_number)
+            print("next state: ", next_state)
+            print("observation recievd : ", problem.observationSpace[observation])
+            print("reward : ", reward)
+            trace['actions'].append(action_number)
+            trace['states'].append(state)
+            trace['next_states'].append(next_state)
+            trace['observations'].append(observation)
+            trace['rewards'].append(reward)
+            trace['bstates'].append(d)
+
+            if next_state==-2:
+                flag=True
+                trace['trace_len'] = len(trace['actions'])
+                traces.append(trace)
+            else:
+                state=next_state
+                root=tree.nodes[node_id].childnodes[observation]
+        print()
+    return traces
+
+traces=genrateTraces(tree,problem,3)
+print(traces)
+
+
+
+
+
 
 
 

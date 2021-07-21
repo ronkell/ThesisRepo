@@ -16,7 +16,7 @@ class Dec_Tiger():
         self.initialState=self.generate_state()
 
     def generateInitStates(self):
-        return self.states;
+        return self.states
 
     def blackbox(self, stateNum, actionNumber):
         reward = 0
@@ -71,6 +71,11 @@ class Dec_Tiger():
 
     def validactionsforrollout(self, stateNum):
         return np.arange(0,len(self.actionSpace),1)
+
+
+
+
+
 
 
 
