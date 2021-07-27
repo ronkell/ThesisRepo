@@ -40,8 +40,8 @@ class Dec_Tiger_private():
             total_reward_per_agent=[trace['total_reward']/2,trace['total_reward']/2]#rit           need to change it for to suit the paper
             ca_costs=[0,0]
             for i in range(0,trace['trace_len']):
-                action = self.actionSpace[trace['actions'][i]]
-                for j in len(action):
+                action = self.TempactionSpace[trace['actions'][i]]
+                for j in range(0,len(action)):
                     if action[j] in self.publicAcitons:
                         we=ca_costs[j]/total_cost_per_agent[j]
                         re=we*total_reward_per_agent[j]
@@ -53,7 +53,8 @@ class Dec_Tiger_private():
         for i in range(0,2):
             for j in range(1,3):
                 for k in range(0,2):
-                    self.context[i][j][k]=sum(e_i_t[i][j][k])/len(e_i_t[i][j][k])
+                    if len(e_i_t[i][j][k])>0:
+                        self.context[i][j][k]=sum(e_i_t[i][j][k])/len(e_i_t[i][j][k])
 
 
 
