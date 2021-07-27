@@ -1,5 +1,6 @@
 from POMCP2 import POMCP
 from boxPushWithAdapter import boxPushProblem
+from Dec_Tiger_private import Dec_Tiger_private
 import numpy as np
 from numpy.random import binomial, choice, multinomial
 from timeit import default_timer as timer
@@ -141,7 +142,8 @@ def genrateTraces(tree,problem,num_of_traces):
     traces=[]
     for i in range(0,num_of_traces):
         print(f"start trace {i}")
-        trace={'actions':[],'states':[],'rewards':[],'observations':[],'next_states':[],'bstates':[],'trace_len':0,}
+        trace={'actions':[],'states':[],'rewards':[],'observations':[],'next_states':[],'bstates':[],'trace_len':0,
+               'total_cost':0,'total_reward':0}
         state=problem.generate_state()
         #beleif_state={0:500,1:500}
         root=-1
@@ -166,6 +168,10 @@ def genrateTraces(tree,problem,num_of_traces):
             trace['next_states'].append(next_state)
             trace['observations'].append(observation)
             trace['rewards'].append(reward)
+            if reward>0:
+                trace['total_reward']+=reward
+            else:
+                trace['total_cost']+=reward
             trace['bstates'].append(d)
 
             if next_state==-2:
@@ -180,6 +186,10 @@ def genrateTraces(tree,problem,num_of_traces):
 
 traces=genrateTraces(tree,problem,3)
 print(traces)
+
+privateproblem=Dec_Tiger_private(traces,2,0)
+privateproblem.extract_ca_from_traces()
+print(privateproblem.context)
 
 
 

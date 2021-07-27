@@ -10,14 +10,17 @@ class Dec_Tiger_private():
         self.numberOfAgents = number_of_agents
         self.states = [0, 1]  # 0 means tiger on the left 1 means tiger on the right
         self.actions_per_agent = [0, 1, 2]  # 0 listen, 1 open left, 2 open right
+        self.publicAcitons=[1,2]
         self.TempactionSpace = [ele for ele in product(range(0, 3), repeat=self.numberOfAgents)]
         self.actionSpace=[]
         self.obs_per_agent = [0, 1]  # 0 means hearing tiger on left, 1 means hearing tiger on right
         self.observationSpace=self.obs_per_agent
         #self.observationSpace = [ele for ele in product(range(0, 2), repeat=self.numberOfAgents)]
-        self.initialState = self.generate_state()
+        #self.initialState = self.generate_state()
         self.traces=traces
         self.agent_id=agent_id
+        self.context=[{1:{0:0,1:0},2:{0:0,1:0}},{1:{0:0,1:0},2:{0:0,1:0}}]
+        self.relaxed=[{1:{},2:{}},{1:{},2:{}}]
         for action in self.TempactionSpace:
             if action[1-self.agent_id]==0 and action[self.agent_id]!=0:
                 continue
@@ -31,22 +34,52 @@ class Dec_Tiger_private():
         return self.states
 
     def extract_ca_from_traces(self):
+        e_i_t={0:{1:{0:[],1:[]},2:{0:[],1:[]}},1:{1:{0:[],1:[]},2:{0:[],1:[]}}} #mapping between e to list  re    e= number of agent,number of action,number of state/context hard coded
         for trace in self.traces:
-            total_cost=0
-            total_cost_per_agent=0
-            toatl_reward=0
-            ca_cost=0
-            for i in range(0,len(trace['actions'])):
+            total_cost_per_agent=[trace['total_cost']/2,trace['total_cost']/2]#cit
+            total_reward_per_agent=[trace['total_reward']/2,trace['total_reward']/2]#rit           need to change it for to suit the paper
+            ca_costs=[0,0]
+            for i in range(0,trace['trace_len']):
+                action = self.actionSpace[trace['actions'][i]]
+                for j in len(action):
+                    if action[j] in self.publicAcitons:
+                        we=ca_costs[j]/total_cost_per_agent[j]
+                        re=we*total_reward_per_agent[j]
+                        ca_costs[j]=0
+                        e_i_t[j][action[j]][trace['states'][i]].append(re)
+                    else:
+                        if trace['rewards'][i]<0:
+                            ca_costs[j]+=trace['rewards'][i]/2
+        for i in range(0,2):
+            for j in range(1,3):
+                for k in range(0,2):
+                    self.context[i][j][k]=sum(e_i_t[i][j][k])/len(e_i_t[i][j][k])
 
-                action=self.actionSpace[trace['actions'][i]]
 
 
 
+
+
+
+                """if trace['rewards'][i]>0 or trace['next_states'] not in trace['states'][0:i+1]:
+                    contribute_steps[i]=ca_cost
+                    ca_cost=0
                 if trace['rewards'][i]>0:
                     toatl_reward+=trace['rewards'][i]
                 else:
                     total_cost+=trace['rewards'][i]
+                    total_cost_per_agent[0]+=trace['rewards'][i]/2
+                    total_cost_per_agent[1] += trace['rewards'][i] / 2
                     ca_cost+=trace['rewards'][i]
+                action=self.actionSpace[trace['actions'][i]]
+                for j in len(action):
+                    if action[j] in self.publicAcitons:
+                        self.context[j][action[j]][trace['states'][i]]='info'
+                        self.context[j][action[j]][trace['states'][i]] = 'info'
+            total_reward_per_agent[0]+= toatl_reward*(total_cost_per_agent[0]/total_cost)
+            total_reward_per_agent[1] += toatl_reward * (total_cost_per_agent[1] / total_cost)"""
+
+
 
 
 
