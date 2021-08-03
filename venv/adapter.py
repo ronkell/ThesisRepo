@@ -14,6 +14,10 @@ class adapter():
         self.obs_to_number = dict()
         self.number_to_obs = dict()
         self.obs_counter = 0
+        self.actionslist=[]
+        self.actionslistindexes=[]
+        self.obslist=[]
+        self.obslistindexes=[]
 
     def initstates(self,listofstates):
         """
@@ -50,6 +54,34 @@ class adapter():
         if state is None:
             raise Exception('error in adapter, cannot find the state for this number')
         return state
+
+    def initacitonsobs(self,actionslist,obslist):
+        self.actionslist=actionslist
+        self.actionslistindexes=[range(0,len(actionslist))]
+        self.obslist=obslist
+        self.obslistindexes=[range(0,len(obslist))]
+        for action in actionslist:
+            self.action_to_number[action]=self.action_counter
+            self.number_to_action[self.action_counter]=action
+            self.action_counter += 1
+        for obs in obslist:
+            self.obs_to_number[obs]=self.obs_counter
+            self.number_to_obs[self.obs_counter]=obs
+            self.obs_counter += 1
+
+        return len(self.number_to_action.keys()),len(self.number_to_obs.keys())
+
+    def actiontoNumber(self,action):
+        return self.action_to_number[action]
+    def numbertoAction(self,numberofaction):
+        return self.number_to_action[numberofaction]
+    def obstoNumber(self,obs):
+        return self.obs_to_number[obs]
+    def numbertoObservation(self,numberofobs):
+        return self.number_to_obs[numberofobs]
+
+
+
 
 
 
