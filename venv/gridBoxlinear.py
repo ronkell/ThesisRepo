@@ -37,6 +37,7 @@ class gridBoxlinear():
         product_actions2 = list(product([0], actions_linear[1:]))
         #push_collab_test_eliran=list(product(collab_push_perbox,collab_push_perbox))
         self.actionSpace=product_actions1+product_actions2+actions_parelal
+        self.actionSpaceIndexed=list(range(0,len(self.actionSpace)))
         self.observationSpaceReally=[ele for ele in product(range(0,3), repeat=numberOfAgents)]
         self.observationSpace=[]
         for x in self.observationSpaceReally:
@@ -61,6 +62,8 @@ class gridBoxlinear():
         self.sense_cost=-1
         self.push_cost=-5
         self.cpush_cost=-5
+        self.push_penalty=-20
+        self.cpush_penalty=-20
         self.push_reward=300
         self.cpush_reward=600
         self.finish_reward=1000
@@ -100,7 +103,7 @@ class gridBoxlinear():
         elif direction==2:
             next_state[object_ind] = (state[object_ind][0] , state[object_ind][1]+1)
             return next_state
-        elif direction==3 and loc[1]>0:
+        elif direction==3:
             next_state[object_ind] = (state[object_ind][0], state[object_ind][1] - 1)
             return next_state
         else:
@@ -128,15 +131,43 @@ class gridBoxlinear():
     def Push(self,state,agentind,pushnumber):
         next_state=state.copy()
         index_in_interval=pushnumber-self.pushindexes[0]
-        box_index=math.floor(index_in_interval/4)
+        box_index=math.floor(index_in_interval/4)+self.numberOfAgents
         direction_index=index_in_interval%4
-        if self.sameLoc(state[agentind],state[box_index]) and self.canMove(agentind,direction_index):
+        if self.sameLoc(state[agentind],state[box_index]) and self.canMove(state[agentind],direction_index):
             next_state=self.move(state,box_index,direction_index)
-            return next_state
+            return (next_state,True)
         else:
-            return state
+            return (state,False)
 
+    def CPush(self,state,cpushnumber):
+        next_state = state.copy()
+        index_in_interval = cpushnumber - self.cpushindexes[0]
+        box_index = math.floor(index_in_interval / 4)+self.numberOfAgents+self.numberOfSmallBoxes
+        direction_index = index_in_interval % 4
+        if self.sameLoc(state[0],state[box_index]) and self.sameLoc(state[0],state[1]) and  self.canMove(state[0],direction_index):
+            next_state=self.move(state,box_index,direction_index)
+            return (next_state,True)
+        else:
+            return (state,False)
+    def checkGoal(self,state):
+        for i in range(self.numberOfAgents,len(state)):
+            if not self.sameLoc(state[i],self.goal_loc):
+                return False
+        return True
 
+    def checkSubgoal(self,state,next_state):
+        for i in range(self.numberOfAgents,len(state)):
+            if not self.sameLoc(state[i],self.goal_loc) and self.sameLoc(next_state[i],self.goal_loc):
+                if i<self.numberOfAgents+self.numberOfSmallBoxes:
+                    return 1
+                else:
+                    return 2
+            if self.sameLoc(state[i],self.goal_loc) and not self.sameLoc(next_state[i],self.goal_loc):
+                if i<self.numberOfAgents+self.numberOfSmallBoxes:
+                    return -2
+                else:
+                    return -3
+        return 0
 
     def blackbox(self, state, action):
         """
@@ -147,20 +178,71 @@ class gridBoxlinear():
         next_state = state.copy()
         reward = [0]*self.numberOfAgents
         observation = [0] * self.numberOfAgents
+        if self.checkGoal(state):
+            return (next_state,tuple(observation),reward)
         for i in range(len(action)):
             if action[i]>=self.moveindexes[0] and action[i]<=self.moveindexes[1]:
                 direction=action[i]-1
-                if self.canMove(state[i]):
+                reward[i] += self.move_cost
+                if self.canMove(state[i],direction):
                     next_state=self.move(state,i,direction)
-                    reward[i]+=self.move_cost
 
 
-            if action[i]>= self.senseindexes[0] and action<=self.senseindexes[1]:
+
+            if action[i]>= self.senseindexes[0] and action[i]<=self.senseindexes[1]:
                 observation[i]=self.Sense(state,i,action[i])
                 reward[i]+=self.sense_cost
+                #if observation[i]==2 and  self.sameLoc(state[i],self.goal_loc):
+                 #   reward[i]+=300
+
 
             if action[i]>=self.pushindexes[0] and action[i]<=self.pushindexes[1]:
-                next_state=self.Push(state,i,action[i])
+                next_state,succ=self.Push(state,i,action[i])
+                reward[i] += self.push_cost
+                if succ==False:
+                    reward[i]+=self.push_penalty
+
+
+        if action[0] >= self.cpushindexes[0] and action[0] <= self.cpushindexes[1]:
+            next_state,cpsucc=self.CPush(state,action[0])
+            reward[0]+=self.cpush_cost
+            reward[1]+=self.cpush_cost
+            if cpsucc==False:
+                reward[0] += self.cpush_penalty
+                reward[1] += self.cpush_penalty
+
+        if self.checkGoal(next_state):
+            reward[0] += self.finish_reward
+            reward[1] += self.finish_reward
+
+        reward_multi=self.checkSubgoal(state,next_state)
+        if reward_multi!=0:
+            reward[0] += self.push_reward*reward_multi
+            reward[1] += self.push_reward*reward_multi
+        if action==(0,0):
+            reward[0] -=5
+            reward[1] -=5
+
+        return (next_state,tuple(observation),reward)
+
+    """def validactionsforrollout(self,state):
+        available_actions=self.actionSpace.copy()
+        available_indexes=self.actionSpaceIndexed.copy()
+        for i in range(0,self.numberOfAgents):
+            loc_agent_i = state[i]
+            not_valid_for_agent_i = []
+            if loc_agent_i[0] == 0:
+                available_actions.remove()
+            if loc_agent_i[0] == self.gridSize - 1:
+                not_valid_for_agent_i.append(2)
+            if loc_agent_i[1] == 0:
+                not_valid_for_agent_i.append(4)
+            if loc_agent_i[1] == self.gridSize - 1:
+                not_valid_for_agent_i.append(3)"""
+
+
+
+
 
 
 

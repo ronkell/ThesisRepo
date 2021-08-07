@@ -66,9 +66,9 @@ class POMCP():
             # self.ends.append(h)
             return 0
         accumlate_reward = 0
-        valid_actions=self.problem.validactionsforrollout(s)
-        #action = choice(self.actions)  # how to define a phirollout and do i need to add action and obs to the tree?
-        action=choice(np.array(valid_actions))
+        #valid_actions=self.problem.validactionsforrollout(s)
+        action = choice(self.actions)  # how to define a phirollout and do i need to add action and obs to the tree?
+        #action=choice(np.array(valid_actions))
         samplestate, sampleobs, reward = self.blackbox(s,action)
         accumlate_reward += reward + self.discountfactor * self.rollout(samplestate, h, depth + 1)
         #if self.rollflag:

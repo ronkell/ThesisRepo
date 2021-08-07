@@ -2,7 +2,7 @@
 
 
 class adapter():
-    def __init__(self):
+    def __init__(self,problem):
         self.state_to_number=dict()
         self.number_to_state=dict()
         self.state_counter=0
@@ -18,6 +18,8 @@ class adapter():
         self.actionslistindexes=[]
         self.obslist=[]
         self.obslistindexes=[]
+        self.problem=problem
+        self.sep_rewards=False
 
     def initstates(self,listofstates):
         """
@@ -57,9 +59,9 @@ class adapter():
 
     def initacitonsobs(self,actionslist,obslist):
         self.actionslist=actionslist
-        self.actionslistindexes=[range(0,len(actionslist))]
+        self.actionslistindexes=list(range(0,len(actionslist)))
         self.obslist=obslist
-        self.obslistindexes=[range(0,len(obslist))]
+        self.obslistindexes=list(range(0,len(obslist)))
         for action in actionslist:
             self.action_to_number[action]=self.action_counter
             self.number_to_action[self.action_counter]=action
@@ -80,6 +82,29 @@ class adapter():
     def numbertoObservation(self,numberofobs):
         return self.number_to_obs[numberofobs]
 
+    def blackbox(self, state, action):
+        """
+        get the call from the POMCP and adapt it to the black box so getting number and delegate it to balck box
+        with the suitable state,action
+        after getting the result from the black box adapt it to the pomcp meaning summ the rewards and turn state and obs to numbers.
+        :param state:
+        :param action:
+        :return:
+        """
+        blackbox_state=self.numberToState(state)
+        blackbox_action=self.numbertoAction(action)
+        b_next_state,b_obs,b_rewards=self.problem.blackbox(blackbox_state,blackbox_action)
+        pomcp_nextstate=self.stateToNumber(b_next_state)
+        pomcp_obs=self.obstoNumber(b_obs)
+        pomcp_reward=0
+        if self.sep_rewards==True:
+            return (pomcp_nextstate,pomcp_obs,b_rewards)
+        for r in b_rewards:
+            pomcp_reward+=r
+        return (pomcp_nextstate,pomcp_obs,pomcp_reward)
+
+    """def validactionsforrollout(self,state):
+        return self.problem.validactionsforrollout(self.numberToState(state))"""
 
 
 
