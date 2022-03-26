@@ -1,4 +1,4 @@
-
+import numpy
 
 
 class adapter():
@@ -92,7 +92,7 @@ class adapter():
         :return:
         """
         blackbox_state=self.numberToState(state)
-        blackbox_action=self.numbertoAction(action)
+        blackbox_action=self.numbertoAction(action) if (type(action) is numpy.int32 or  type(action) is int) else action
         b_next_state,b_obs,b_rewards=self.problem.blackbox(blackbox_state,blackbox_action)
         pomcp_nextstate=self.stateToNumber(b_next_state)
         pomcp_obs=self.obstoNumber(b_obs)

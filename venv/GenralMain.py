@@ -180,12 +180,18 @@ def genrateTraces(tree,problem,num_of_traces):
                 traces.append(trace)
             else:
                 state=next_state
+                if observation not in tree.nodes[node_id].childnodes:
+                    print("hello here")
                 root=tree.nodes[node_id].childnodes[observation]
         print()
     return traces
 
-traces=genrateTraces(tree,problem,3)
-print(traces)
+traces=genrateTraces(tree,problem,10)
+for i in range(0,len(traces)):
+    print("trace ",i)
+    print("actions ",traces[i]['actions'])
+    print("observations ",traces[i]['observations'])
+    print()
 
 privateproblem=Dec_Tiger_private(traces,2,0)
 privateproblem.extract_ca_from_traces()

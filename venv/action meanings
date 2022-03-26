@@ -1,0 +1,25 @@
+problem: grid box linear:
+#actions per agent (0 idle),(1 left),(2 right),(3 up) (4 down) (5-x where x=5+number of boxes sense) (x+1-y where y=4*number of small boxes) (y+1 z where z=4*number of big boxes)
+#obs per agent (0 idle) (1 no box) (2 yes box)
+example for 2x2_2A_1L_1H
+actions:
+0 idle
+1 left
+2 right
+3 up
+4 down
+5 sense box 1
+6 sense box 2
+7 push left box 1
+8 push right box 1
+9 push up box 1
+10 push down box 1
+11 c-push left box 2
+12 c-push right box 2
+13 c-push up box 2
+14 c-push down box 2
+
+observations:
+0 idle
+1 no box
+2 yes box

@@ -3,7 +3,7 @@ import itertools
 import numpy as np
 from itertools import product
 from timeit import default_timer as timer
-from adapter import adapter
+
 import math
 #actions per agent (0 idle),(1 left),(2 right),(3 up) (4 down) (5-x where x=5+number of boxes sense) (x+1-y where y=4*number of small boxes) (y+1 z where z=4*number of big boxes)
 #obs per agent (0 idle) (1 no box) (2 yes box)
@@ -67,6 +67,7 @@ class gridBoxlinear():
         self.push_reward=300
         self.cpush_reward=600
         self.finish_reward=1000
+        self.push_prob=1# change to 0.8 when you want stohastic
 
 
     def canMove(self,loc,direction):
@@ -175,6 +176,7 @@ class gridBoxlinear():
         :param action:(a1,a2,a3..an)
         :return:(next state,observation,reward)
         """
+        rnd=random.uniform(0,1)
         next_state = state.copy()
         reward = [0]*self.numberOfAgents
         observation = [0] * self.numberOfAgents
@@ -197,10 +199,13 @@ class gridBoxlinear():
 
 
             if action[i]>=self.pushindexes[0] and action[i]<=self.pushindexes[1]:
-                next_state,succ=self.Push(state,i,action[i])
-                reward[i] += self.push_cost
-                if succ==False:
-                    reward[i]+=self.push_penalty
+                if rnd<=self.push_prob:# if we got random under 0.8 the push is excuted
+                    next_state,succ=self.Push(state,i,action[i])
+                    reward[i] += self.push_cost
+                    if succ==False:
+                        reward[i]+=self.push_penalty
+                else:# action failed because of stohastic
+                    reward[i] += self.push_cost
 
 
         if action[0] >= self.cpushindexes[0] and action[0] <= self.cpushindexes[1]:

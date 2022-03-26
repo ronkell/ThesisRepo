@@ -10,6 +10,7 @@ from collections import Counter
 import math
 from numpy.random import binomial, choice, multinomial
 import pandas as pd
+import extracteliran
 
 class RKsolver():
     def __init__(self,problemname):
@@ -28,9 +29,10 @@ class RKsolver():
         self.problem_instance = gridBoxlinear(2, 2, 2, 1, 1, [(0, 1), (1, 0)], [(0, 0), (0, 0)])
         self.problem_adapter=adapter(self.problem_instance)
         initstates=self.problem_adapter.initstates(self.problem_instance.initialStateDisterbution)
+        init_state_array=np.array(list(range(0,initstates)))
         actions,obs=self.problem_adapter.initacitonsobs(self.problem_instance.actionSpace,self.problem_instance.observationSpace)
         self.pomcp_solver=POMCP(self.problem_adapter.blackbox,self.problem_adapter, discountfactor=0.95,c=1100,timeout=500, horizon=15)
-        self.pomcp_solver.initialize(initstates, np.array(self.problem_adapter.actionslistindexes), np.array(self.problem_adapter.obslistindexes))
+        self.pomcp_solver.initialize(init_state_array, np.array(self.problem_adapter.actionslistindexes), np.array(self.problem_adapter.obslistindexes))
         self.tree=self.pomcp_solver.tree
         self.counter_train = 0
         self.list_of_hisory_belief = []
@@ -57,7 +59,7 @@ class RKsolver():
             if self.problem_instance.checkGoal(self.problem_adapter.numberToState(real_state)):
                 print("process finished")
                 break
-            # temp0 = getBelief(ab.tree.nodes[root].belief)
+
             action = self.pomcp_solver.search(root)
             actioncounts += 1
             print("action chosen: ", self.problem_adapter.numbertoAction(action))
@@ -74,12 +76,12 @@ class RKsolver():
             if len(self.tree.nodes[self.tree.nodes[root].parent].childnodes) > 1:
                 print(f"action that added to expand is {self.problem_adapter.numbertoAction(action)} ")
                 actionNode_realState.append((self.tree.nodes[root].parent, next_state, action))
-            if self.problem_instance.checkGoal(self.problem_adapter.numberToState(real_state)) == -2:
+            if self.problem_instance.checkGoal(self.problem_adapter.numberToState(real_state)):
                 print("process finished")
                 break
         print("the sum of rewards ", sumRewards)
         print("number of action until goal", actioncounts)
-        # print("precentege of fail ", problem.countbad / (problem.countbad + problem.countgood))
+
         succ_flag = True if time < 16 else False
         return actionNode_realState, succ_flag
 
@@ -99,6 +101,10 @@ class RKsolver():
         print(f"train number {self.counter_train}")
         self.counter_train += 1
         more_nodes, flag = self.train(self.problem_adapter.stateToNumber(self.problem_instance.initialState))
+        if flag is False:
+            raise Exception("failed to train")
+
+
         print("********* start expanding *****************")
         while (len(more_nodes) > 0):
             node = more_nodes.pop(0)
@@ -144,6 +150,9 @@ class RKsolver():
                     continue
                 childs_list.append(obs_node)
 
+
+
+
     def genrateTraces(self,num_of_traces):
         print("****** generate traces**********")
         self.problem_adapter.sep_rewards=True
@@ -156,7 +165,9 @@ class RKsolver():
             # beleif_state={0:500,1:500}
             root = -1
             flag = False
+            count=0
             while (not flag):
+                count+=1
                 print(f"state is {self.problem_adapter.numberToState(state)}")
                 d = dict(sorted(Counter(self.tree.nodes[root].belief).items()))
                 print(f"node belief state")
@@ -178,23 +189,172 @@ class RKsolver():
                 trace['next_states'].append(next_state)
                 trace['observations'].append(observation)
                 trace['rewards'].append(reward)
-                for i in range(0,len(reward)):
-                    if reward[i] > 0:
-                        trace['total_rewards'][i] += reward[i]
-                        trace['total_reward'] += reward[i]
+                for j in range(0,len(reward)):
+                    if reward[j] > 0:
+                        trace['total_rewards'][j] += reward[j]
+                        trace['total_reward'] += reward[j]
                     else:
-                        trace['total_costs'][i] += reward[i]
-                        trace['total_cost'] += reward[i]
+                        trace['total_costs'][j] += reward[j]
+                        trace['total_cost'] += reward[j]
                 trace['bstates'].append(d)
 
-                if self.problem_instance.checkGoal(self.problem_adapter.numberToState(next_state)):
+                if self.problem_instance.checkGoal(self.problem_adapter.numberToState(next_state)) or count>20:
                     flag = True
                     trace['trace_len'] = len(trace['actions'])
-                    self.traces.append(trace)
+                    if self.problem_instance.checkGoal(self.problem_adapter.numberToState(next_state)):
+                        self.traces.append(trace)
+
                 else:
+                    if observation not in self.tree.nodes[node_id].childnodes:
+                        print("hello here")
+                        break;
                     state = next_state
                     root = self.tree.nodes[node_id].childnodes[observation]
             print()
+
+
+
+    def genrateTracesbyHand(self,num_of_traces):
+        print("****** generate traces**********")
+        self.problem_adapter.sep_rewards=True
+        for i in range(0, num_of_traces):
+            print(f"start trace {i}")
+            trace = {'actions': [], 'states': [], 'rewards': [], 'observations': [], 'next_states': [],
+                     'trace_len': 0,
+                     'total_cost': 0, 'total_reward': 0,'total_costs':[0,0],'total_rewards':[0,0]}
+            state = choice(self.pomcp_solver.initStates)
+            flag = False
+            count=0
+            policyGraph=extracteliran.s
+            while (not flag):
+                count+=1
+                print(f"state is {self.problem_adapter.numberToState(state)}")
+                action=policyGraph['action']
+                print(f"action suggested {action}")
+                action_number=self.problem_adapter.actiontoNumber(action)
+                next_state, observation, reward = self.problem_adapter.blackbox(state, action_number)
+                print("next state: ", self.problem_adapter.numberToState(next_state))
+                obs=self.problem_adapter.numbertoObservation(observation)
+                next_policy_graph_state=policyGraph['next'][obs]
+                policyGraph=extracteliran.mymap[next_policy_graph_state] if next_policy_graph_state!='final' else policyGraph
+                print("observation recievd : ", obs)
+                print("reward : ", reward)
+                trace['actions'].append(action_number)
+                trace['states'].append(state)
+                trace['next_states'].append(next_state)
+                trace['observations'].append(observation)
+                trace['rewards'].append(reward)
+                for j in range(0,len(reward)):
+                    if reward[j] > 0:
+                        trace['total_rewards'][j] += reward[j]
+                        trace['total_reward'] += reward[j]
+                    else:
+                        trace['total_costs'][j] += reward[j]
+                        trace['total_cost'] += reward[j]
+
+
+                if self.problem_instance.checkGoal(self.problem_adapter.numberToState(next_state)) or count>20:
+                    flag = True
+                    trace['trace_len'] = len(trace['actions'])
+                    if self.problem_instance.checkGoal(self.problem_adapter.numberToState(next_state)):
+                        self.traces.append(trace)
+
+                else:
+                    state = next_state
+
+            print()
+
+
+"""
+
+    def nextaction(self,bstate,prob,stepcount):
+        #!
+        if stepcount==1:
+            return (4,0)
+        #2
+        if stepcount==2:
+            return (5,0)
+        #3
+        if bstate==[(0,0),(1,0),(0,0),(1,1)] and prob==0.5:
+            return (6,0)
+        if bstate==[(0,0),(1,0),(1,1),(1,1)] and prob==0.5:
+            return (6,0)
+        #4
+        if bstate==[(0,0),(1,0),(0,0),(0,0)] and prob==1:
+            return (8,0)
+        if bstate==[(0,0),(1,0),(0,0),(1,1)] and prob==1:
+            return (8,0)
+        if bstate==[(0,0),(1,0),(1,1),(1,1)] and prob==1:
+            return (0,0)
+        if bstate==[(0,0),(1,0),(1,1),(0,0)] and prob==1:
+            return (0,1)
+        #5
+        if bstate==[(0,0),(1,0),(1,0),(1,1)] and prob==0.8:
+            return (5,0)
+
+    def updatebsate(self,prev_bstate,action,obs,prob):
+        if prev_bstate[0]==(0,1) and action(4,0):
+            prev_bstate[0]=(0,0)
+            return (prev_bstate,-1)
+        if prev_bstate[0]==(0,0) and action(2,0):
+            prev_bstate[0]=(1,0)
+            return (prev_bstate,-1)
+        if prev_bstate[0]==(1,0) and action(1,0):
+            prev_bstate[0]=(0,0)
+            return (prev_bstate,-1)
+        if prev_bstate[1]==(1,0) and action(1,0):
+            prev_bstate[1]=(0,0)
+            return (prev_bstate,-1)
+
+        if prev_bstate[0]==(0,0) and action==(5,0) and prob==0.25:
+            if obs==(2,0):
+                prev_bstate[2]=(0,0)
+                return (prev_bstate,0.5)
+            elif obs ==(1,0):
+                prev_bstate[2]=(1,1)
+                return (prev_bstate,0.5)
+        if prev_bstate[0]==(0,0) and action==(6,0):
+           if obs==(2,0):
+               prev_bstate[3]=(0,0)
+               return (prev_bstate,1)
+           elif obs==(1,0):
+               prev_bstate[3]=(1,1)
+               return (prev_bstate,1)
+        if prev_bstate[0]==(1,0) and action==(6,0):
+           if obs==(2,0):
+               prev_bstate[3]=(1,0)
+               return (prev_bstate,1)
+
+        if prev_bstate[0]==(0,0) and action==(8,0):
+            prev_bstate[2]=(1,0)
+            return (prev_bstate,0,8)
+
+        if prev_bstate[1]==(1,0) and action==(0,5):
+            if obs==(2,0):
+                prev_bstate[2]=(1,0)
+                return (prev_bstate,1)
+        if prev_bstate[1]==(1,0) and action==(0,9):
+            prev_bstate[2]=(1,1)
+            return (prev_bstate,0,8)
+        if prev_bstate==[(0,0),(0,0),(1,1),(0,0)] and action==(12,12):
+            prev_bstate[3]=(1,0)
+            return (prev_bstate,0.8)
+        if prev_bstate[(1,0),(1,0),(1,1),(1,0)] and action==(13,13):
+            prev_bstate[3]=(1,1)
+            return (prev_bstate,0.8)
+"""
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

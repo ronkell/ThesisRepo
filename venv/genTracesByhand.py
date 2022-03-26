@@ -1,38 +1,18 @@
 from gridBoxlinear import gridBoxlinear
 from RKsolver import RKsolver
 import pickle
-#prob=gridBoxlinear(2, 2, 2, 1, 1, [(0, 1), (1, 0)], [(0, 0), (0, 0)])
-#prob=gridBoxlinear(2,2,2,0,2,[(0,0),(1,1)],[(0,1),(1,0)])
+
 solver=RKsolver('boxMove')
-""" just process pickle need to remove the comment because this code is good
 
-solver.build_tree()
-solver.genrateTraces(100)
-traces=solver.traces
-with open('tracesBP.pickle', 'wb') as handle:
-    pickle.dump(traces, handle, protocol=pickle.HIGHEST_PROTOCOL)"""
-
-
-def gen_traces(sim_id):
-    solver.build_tree()
-    solver.genrateTraces(100)
-    traces = solver.traces
-    with open(f'tracesBP{sim_id}.pickle', 'wb') as handle:
-        pickle.dump(traces, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
-def gen_multitrace(sim_id,numberofmodels):
+def gen_multitrace(sim_id,numberoftraces=100):
     full_traces=[]
-    for i in range(numberofmodels):
-        mysolv=RKsolver('boxMove')
-        try:
-            mysolv.build_tree()
-        except Exception as e:
-            print(e)
-            continue
-        mysolv.genrateTraces(100)
-        full_traces.extend(mysolv.traces)
+    mysolv=RKsolver('boxMove')
+    mysolv.genrateTracesbyHand(numberoftraces)
+    full_traces.extend(mysolv.traces)
     with open(f'tracesBP{sim_id}.pickle', 'wb') as handle:
         pickle.dump(full_traces, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+
 def disterbute_traces(sim_id):
     agent1dict = {}
     agent2dict = {}
@@ -60,15 +40,7 @@ def disterbute_traces(sim_id):
         pickle.dump(agent2dict, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 
-
-
 if __name__ == '__main__':
-    sim_id=input('enter simulation id')
-    #gen_traces(sim_id)
-    gen_multitrace(sim_id,15)
+    sim_id = input('enter simulation id')
+    gen_multitrace(sim_id,1000)
     disterbute_traces(sim_id)
-
-
-
-
-

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3221114b-efc1-44e8-adc2-594ef27d301f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/myResearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/myResearch.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/POMCP2.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/POMCP2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/GenralMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/GenralMain.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/RKsolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/RKsolver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/adapter.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/adapter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/gridBoxlinear.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/gridBoxlinear.py" afterDir="false" />
@@ -34,17 +36,40 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/eliransolv/decpomdp-solver-main" />
     <property name="nodejs.jest.jest_package" value="" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\ResearchRealrepo\ThesisRepo\venv\traces" />
       <recent name="C:\myResearch\venv" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main_gen">
-    <configuration name="Dec_Tiger" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.buildingSeq">
+    <configuration name="buildingSeq" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="myResearch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\user\anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/buildingSeq.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="extracteliran" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="myResearch" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -57,7 +82,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\ResearchRealrepo\ThesisRepo\venv\Dec_Tiger.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/extracteliran.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -66,7 +91,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="GenralMain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="genTracesByhand" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="myResearch" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -79,7 +104,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/GenralMain.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/genTracesByhand.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -88,7 +113,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ImprovedMain (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="graphstate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="myResearch" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -96,34 +121,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/secondphase" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/ImprovedMain.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ImprovedMain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="myResearch" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/Scripts" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\myResearch\venv\ImprovedMain.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/secondphase/graphstate.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,11 +159,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.buildingSeq" />
+        <item itemvalue="Python.genTracesByhand" />
+        <item itemvalue="Python.graphstate" />
+        <item itemvalue="Python.extracteliran" />
         <item itemvalue="Python.main_gen" />
-        <item itemvalue="Python.GenralMain" />
-        <item itemvalue="Python.ImprovedMain (1)" />
-        <item itemvalue="Python.ImprovedMain" />
-        <item itemvalue="Python.Dec_Tiger" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +212,32 @@
       <workItem from="1627375292973" duration="13258000" />
       <workItem from="1627393578083" duration="3717000" />
       <workItem from="1627981670993" duration="24079000" />
-      <workItem from="1628326000309" duration="22391000" />
+      <workItem from="1628326000309" duration="24969000" />
+      <workItem from="1629640646468" duration="932000" />
+      <workItem from="1634726466252" duration="617000" />
+      <workItem from="1635170633762" duration="692000" />
+      <workItem from="1635864574290" duration="3317000" />
+      <workItem from="1636008598008" duration="3461000" />
+      <workItem from="1636189020237" duration="3857000" />
+      <workItem from="1636616522069" duration="3121000" />
+      <workItem from="1636733995620" duration="16151000" />
+      <workItem from="1637485762011" duration="1877000" />
+      <workItem from="1637660127810" duration="7999000" />
+      <workItem from="1638112420971" duration="3059000" />
+      <workItem from="1639295276542" duration="25468000" />
+      <workItem from="1639413922090" duration="729000" />
+      <workItem from="1639904523032" duration="34000" />
+      <workItem from="1640328174220" duration="62000" />
+      <workItem from="1640608927383" duration="3210000" />
+      <workItem from="1640674573982" duration="16481000" />
+      <workItem from="1642061312385" duration="12420000" />
+      <workItem from="1642321118087" duration="2538000" />
+      <workItem from="1642328003884" duration="14343000" />
+      <workItem from="1643275897273" duration="650000" />
+      <workItem from="1643533659166" duration="15545000" />
+      <workItem from="1644136965935" duration="24271000" />
+      <workItem from="1644742172110" duration="7211000" />
+      <workItem from="1648281644671" duration="939000" />
     </task>
     <servers />
   </component>
@@ -217,75 +245,75 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="375" y="157" width="490" height="571" key="#xdebugger.evaluate" timestamp="1628343473907">
+    <state x="428" y="168" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1643538806894">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="375" y="157" width="490" height="571" key="#xdebugger.evaluate/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1628343473907" />
-    <state width="1323" height="180" key="GridCell.Tab.0.bottom" timestamp="1628355578475">
+    <state x="428" y="168" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1643538806894" />
+    <state x="1675" y="343" width="490" height="571" key="#xdebugger.evaluate" timestamp="1644167931424">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1675" y="343" width="490" height="571" key="#xdebugger.evaluate/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1644167931424" />
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1642344613999">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="180" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1628355578475" />
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
-    <state width="1323" height="180" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1626098515910" />
-    <state width="1323" height="180" key="GridCell.Tab.0.center" timestamp="1628355578475">
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1642344613999" />
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1645104020153">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="180" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1628355578475" />
-    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
-    <state width="1323" height="180" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1626098515910" />
-    <state width="1323" height="180" key="GridCell.Tab.0.left" timestamp="1628355578470">
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1645104020153" />
+    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1645104020152">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="180" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1628355578470" />
-    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
-    <state width="1323" height="180" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1626098515910" />
-    <state width="1323" height="180" key="GridCell.Tab.0.right" timestamp="1628355578475">
+    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1645104020152" />
+    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1645104020152">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="180" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1628355578475" />
-    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
-    <state width="1323" height="180" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1626098515910" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1628343626851">
+    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1645104020152" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1645104020153">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1628343626851" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1622649821518" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1628343626851">
+    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1645104020153" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1645104020155">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1628343626851" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1622649821518" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1628343626851">
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1645104020155" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1645104020154">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1628343626851" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1622649821518" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1628343626851">
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1645104020154" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1645104020154">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1628343626851" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1620583357772" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1622649821518" />
-    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1628343278967">
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1645104020154" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1645104020155">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1628343278967" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1628327675879">
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1645104020155" />
+    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1642332941451">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1628327675879" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1626090642709" />
+    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1642332941451" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1648281644510">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1648281644510" />
+    <state x="1374" y="181" width="385" height="506" key="dock-window-1" timestamp="1648281737242">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1374" y="181" width="385" height="506" key="dock-window-1/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1648281737242" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/venv/GenralMain.py</url>
-          <line>191</line>
-          <option name="timeStamp" value="1" />
+          <line>183</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/venv/buildingSeq.py</url>
+          <line>294</line>
+          <option name="timeStamp" value="61" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -298,14 +326,20 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/myResearch$ImprovedMain.coverage" NAME="ImprovedMain Coverage Results" MODIFIED="1626092074734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Scripts" />
     <SUITE FILE_PATH="coverage/ThesisRepo$ImprovedMain.coverage" NAME="ImprovedMain Coverage Results" MODIFIED="1626619331678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Scripts" />
+    <SUITE FILE_PATH="coverage/ThesisRepo$genTracesByhand.coverage" NAME="genTracesByhand Coverage Results" MODIFIED="1644155360332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
     <SUITE FILE_PATH="coverage/ThesisRepo$Dec_Tiger.coverage" NAME="Dec-Tiger Coverage Results" MODIFIED="1626611207598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
     <SUITE FILE_PATH="coverage/ThesisRepo$ImprovedMain__1_.coverage" NAME="ImprovedMain (1) Coverage Results" MODIFIED="1626620084146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
-    <SUITE FILE_PATH="coverage/ThesisRepo$GenralMain.coverage" NAME="GenralMain Coverage Results" MODIFIED="1627395914960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
     <SUITE FILE_PATH="coverage/myResearch$Main.coverage" NAME="Main Coverage Results" MODIFIED="1622632707022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
+    <SUITE FILE_PATH="coverage/ThesisRepo$leetcode_not_for_research.coverage" NAME="leetcode not for research Coverage Results" MODIFIED="1638114992094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
+    <SUITE FILE_PATH="coverage/ThesisRepo$main_gen.coverage" NAME="main_gen Coverage Results" MODIFIED="1642341370146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
+    <SUITE FILE_PATH="coverage/ThesisRepo$extracteliran.coverage" NAME="extracteliran Coverage Results" MODIFIED="1644141381092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
+    <SUITE FILE_PATH="coverage/myResearch$ImprovedMain.coverage" NAME="ImprovedMain Coverage Results" MODIFIED="1626092074734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Scripts" />
+    <SUITE FILE_PATH="coverage/ThesisRepo$GenralMain.coverage" NAME="GenralMain Coverage Results" MODIFIED="1637074297697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
     <SUITE FILE_PATH="coverage/myResearch$tryminimain1agent.coverage" NAME="tryminimain1agent Coverage Results" MODIFIED="1622634490092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
+    <SUITE FILE_PATH="coverage/ThesisRepo$buildingSeq.coverage" NAME="buildingSeq Coverage Results" MODIFIED="1648282053620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
     <SUITE FILE_PATH="coverage/myResearch$Tree.coverage" NAME="Tree Coverage Results" MODIFIED="1618061517331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
-    <SUITE FILE_PATH="coverage/ThesisRepo$main_gen.coverage" NAME="main_gen Coverage Results" MODIFIED="1628355578436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
+    <SUITE FILE_PATH="coverage/ThesisRepo$RKsolver.coverage" NAME="RKsolver Coverage Results" MODIFIED="1637075767666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
+    <SUITE FILE_PATH="coverage/ThesisRepo$graphstate.coverage" NAME="graphstate Coverage Results" MODIFIED="1644144061145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/secondphase" />
   </component>
 </project>
