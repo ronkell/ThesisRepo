@@ -42,5 +42,5 @@ def disterbute_traces(sim_id):
 
 if __name__ == '__main__':
     sim_id = input('enter simulation id')
-    gen_multitrace(sim_id,1000)
+    gen_multitrace(sim_id,10000)
     disterbute_traces(sim_id)

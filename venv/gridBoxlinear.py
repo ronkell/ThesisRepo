@@ -67,7 +67,7 @@ class gridBoxlinear():
         self.push_reward=300
         self.cpush_reward=600
         self.finish_reward=1000
-        self.push_prob=1# change to 0.8 when you want stohastic
+        self.push_prob=0.8# change to 0.8 when you want stohastic
 
 
     def canMove(self,loc,direction):
